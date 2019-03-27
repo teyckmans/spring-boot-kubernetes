@@ -1,15 +1,17 @@
 # spring-boot-kubernetes-basics
 
 # local docker compose setup
-```
+```bash
 ./gradlew build
 docker-compose up --build
 curl http://localhost:8080/basics/time
 docker-compose down
-```bash
+```
+
 # local microk8s setup
 
 note: microk8s also needs port 8080 so please stop run docker-compose down before starting with this section.
+
 ```bash
 sudo snap install microk8s --classic
 sudo microk8s.start
