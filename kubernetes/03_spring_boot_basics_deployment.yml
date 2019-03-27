@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basics
+  template:
+    metadata:
+      labels:
+        app: basics
+    spec:
+      containers:
+        - name: basics
+          image: teyckmans/spring-boot-kubernetes-basics:0.0.1
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/postgres
