@@ -1,0 +1,18 @@
+version: '3'
+services:
+  spring-boot-basics:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+    depends_on:
+      - postgres
+  postgres:
+    image: "postgres:11.2-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: basicsPwd
